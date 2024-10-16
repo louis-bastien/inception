@@ -7,7 +7,8 @@ services:
     ports:
       - "8080:80"
     volumes:
-      - ../data/static:/var/www/html
+      - ../data/content:/var/www/html
+      - ../data/logs/nginx:/var/log/nginx
     networks:
       - internal
 
@@ -15,6 +16,8 @@ services:
     build:
       context: ./services/php
       dockerfile: Dockerfile
+    volumes:
+      - ../data/content:/var/www/html
     networks:
       - internal
 
