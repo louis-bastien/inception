@@ -13,6 +13,7 @@ services:
       - internal
 
   php:
+    env_file: ".env"
     build:
       context: ./services/php
       dockerfile: Dockerfile
@@ -22,6 +23,7 @@ services:
       - internal
 
   mariadb:
+    env_file: ".env"
     build:
       context: ./services/mariadb
       dockerfile: Dockerfile

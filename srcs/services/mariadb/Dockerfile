@@ -1,12 +1,9 @@
 FROM alpine:3.19
 
-RUN apk add --no-cache mariadb mariadb-client
+RUN apk add mariadb mariadb-client
+RUN mysql_install_db --user=mysql
 
-RUN mkdir -p /var/lib/mysql /run/mysqld && \
-    chown -R mysql:mysql /var/lib/mysql /run/mysqld
+COPY ./conf/init.sh /etc
+RUN chmod +x /etc/init.sh
 
-RUN mariadb-install-db --user=mysql --datadir=/var/lib/mysql
-
-USER mysql
-
-CMD ["mariadbd", "--user=mysql", "--datadir=/var/lib/mysql", "--console"]
+ENTRYPOINT ["/bin/sh", "/etc/init.sh"]
