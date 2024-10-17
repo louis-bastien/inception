@@ -14,7 +14,7 @@ down:
 	docker compose -f $(COMPOSE_FILE) down
 
 clean:
-	docker compose -f $(COMPOSE_FILE) down -v --rmi all 
+	docker compose -f $(COMPOSE_FILE) down -v --rmi all  
 
 destroy:
 	docker compose -f $(COMPOSE_FILE) down -v --rmi all 
