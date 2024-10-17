@@ -3,7 +3,6 @@
 # Start MariaDB in safe mode in the background
 mysqld_safe &
 
-# Wait until MariaDB is ready to accept connections
 while ! mysqladmin ping --silent; do
     echo "Waiting for MariaDB to be available..."
     sleep 2
@@ -21,5 +20,5 @@ else
 fi
 
 # Stop background process and start it agin in foreground
-mysqladmin stop
-mysqld_safe
+mysqladmin shutdown
+exec mysqld_safe
