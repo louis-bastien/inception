@@ -5,7 +5,7 @@ services:
       context: ./services/nginx
       dockerfile: Dockerfile
     ports:
-      - "4433:443"
+      - "4242:443"
     volumes:
       - ../data/content:/var/www/html
       - ../data/logs/nginx:/var/log/nginx
