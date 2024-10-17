@@ -7,7 +7,7 @@ services:
     ports:
       - "4242:443"
     volumes:
-      - ../data/content:/var/www/html
+      - ../data/wordpress-files:/var/www/html
       - ../data/logs/nginx:/var/log/nginx
     networks:
       - internal
@@ -18,7 +18,7 @@ services:
       context: ./services/php
       dockerfile: Dockerfile
     volumes:
-      - ../data/content:/var/www/html
+      - ../data/wordpress-files:/var/www/html
     networks:
       - internal
 
