@@ -5,7 +5,7 @@ services:
       context: ./services/nginx
       dockerfile: Dockerfile
     ports:
-      - "8080:80"
+      - "4433:443"
     volumes:
       - ../data/content:/var/www/html
       - ../data/logs/nginx:/var/log/nginx
@@ -21,6 +21,14 @@ services:
     networks:
       - internal
 
+  mariadb:
+    build:
+      context: ./services/mariadb
+      dockerfile: Dockerfile
+    volumes:
+      - ../data/database:/var/lib/mysql
+    networks:
+      - internal
 
 networks:
   internal:
