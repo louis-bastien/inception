@@ -5,6 +5,7 @@ RUN mysql_install_db --user=mysql --datadir=/var/lib/mysql
 
 
 COPY    ./tools/init.sh /etc
+COPY    ./conf/mariadb-server.cnf /etc/my.cnf.d
 
 RUN chmod +x /etc/init.sh
 
