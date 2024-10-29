@@ -9,6 +9,7 @@ services:
       - "443:443"
     volumes:
       - /home/lbastien/data/wp_files:/var/www/html
+      - /home/lbastien/data/ssl:/etc/ssl
     networks:
       - internal
     restart: always
