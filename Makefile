@@ -5,23 +5,23 @@ COMPOSE_FILE = srcs/compose.yml
 all: build up
 
 build:
-	docker compose -f $(COMPOSE_FILE) build
+	sudo docker-compose -f $(COMPOSE_FILE) build
 
 up:
-	docker compose -f $(COMPOSE_FILE) up -d
+	sudo docker-compose -f $(COMPOSE_FILE) up -d
 
 down:
-	docker compose -f $(COMPOSE_FILE) down
+	sudo ocker-compose -f $(COMPOSE_FILE) down
 
 clean:
-	docker compose -f $(COMPOSE_FILE) down -v --rmi all  
+	sudo docker-compose -f $(COMPOSE_FILE) down -v --rmi all  
 
 destroy:
-	docker compose -f $(COMPOSE_FILE) down -v --rmi all 
-	docker system prune -f
+	sudo docker-compose -f $(COMPOSE_FILE) down -v --rmi all 
+	sudo docker system prune -f
 
 logs:
-	docker compose -f $(COMPOSE_FILE) logs
+	sudo docker-compose -f $(COMPOSE_FILE) logs
 
 
 enter:

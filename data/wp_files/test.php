@@ -1,8 +1,8 @@
 <?php
 $host = 'mariadb'; // The service name defined in your docker-compose.yml
-$user = 'db_user';
-$pass = 'db_password';
-$dbname = 'wordpress_db';
+$user = getenv('DB_USER');
+$pass = getenv('DB_PASS');
+$dbname = getenv('DB_NAME');
 
 $conn = new mysqli($host, $user, $pass, $dbname);
 
