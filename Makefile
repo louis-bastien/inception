@@ -11,7 +11,7 @@ up:
 	sudo docker-compose -f $(COMPOSE_FILE) up -d
 
 down:
-	sudo ocker-compose -f $(COMPOSE_FILE) down
+	sudo docker-compose -f $(COMPOSE_FILE) down
 
 clean:
 	sudo docker-compose -f $(COMPOSE_FILE) down -v --rmi all  
@@ -25,9 +25,9 @@ logs:
 
 
 enter:
-	@CONTAINER_ID=$$(docker-compose -f $(COMPOSE_FILE) ps -q $(filter-out $@,$(MAKECMDGOALS))); \
+	@CONTAINER_ID=$$(sudo docker-compose -f $(COMPOSE_FILE) ps -q $(filter-out $@,$(MAKECMDGOALS))); \
 	if [ -n "$$CONTAINER_ID" ]; then \
-		docker exec -it $$CONTAINER_ID /bin/sh; \
+		sudo docker exec -it $$CONTAINER_ID /bin/sh; \
 	else \
 		echo "Container for service '$(filter-out $@,$(MAKECMDGOALS))' is not running"; \
 	fi

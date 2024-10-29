@@ -1,15 +1,19 @@
 services:
 
   nginx:
+    env_file: ".env"
     build:
       context: ../srcs/services/nginx
       dockerfile: Dockerfile
     ports:
-      - "4242:443"
+      - "443:443"
     volumes:
-      - ../data/wp_files:/var/www/html
+      - /home/lbastien/data/wp_files:/var/www/html
     networks:
       - internal
+    restart: always
+    depends_on:
+      - php
 
   php:
     env_file: ".env"
@@ -17,9 +21,12 @@ services:
       context: ../srcs/services/php
       dockerfile: Dockerfile
     volumes:
-      - ../data/wp_files:/var/www/html
+      - /home/lbastien/data/wp_files:/var/www/html
     networks:
       - internal
+    restart: always
+    depends_on:
+      - mariadb
 
   mariadb:
     env_file: ".env"
@@ -27,9 +34,10 @@ services:
       context: ../srcs/services/mariadb
       dockerfile: Dockerfile
     volumes:
-      - ../data/database:/var/lib/mysql
+      - /home/lbastien/data/database:/var/lib/mysql
     networks:
       - internal
+    restart: always
 
 networks:
   internal:
