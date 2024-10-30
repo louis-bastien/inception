@@ -11,7 +11,7 @@ services:
       - /home/lbastien/data/ssl:/etc/ssl
     networks:
       - internal
-#    restart: always
+    restart: always
     depends_on:
       - php
 
@@ -24,7 +24,7 @@ services:
       - /home/lbastien/data/wp_files:/var/www/html
     networks:
       - internal
-#    restart: always
+    restart: always
     depends_on:
       - mariadb
 
@@ -37,7 +37,30 @@ services:
       - /home/lbastien/data/database:/var/lib/mysql
     networks:
       - internal
-#    restart: always
+    restart: always
+
+  ftp:
+    build:
+      context: ../srcs/services/ftp
+      dockerfile: Dockerfile
+    ports:
+      - "21:21"
+      - "30000-30009:30000-30009"
+    volumes:
+      - /home/lbastien/data/wp_files:/home/ftp
+    networks:
+      - internal
+    restart: always
+
+  redis:
+    build:
+      context: ../srcs/services/redis
+      dockerfile: Dockerfile
+    ports:
+      - "6379:6379"
+    networks:
+      - internal
+    restart: always
 
 networks:
   internal:
