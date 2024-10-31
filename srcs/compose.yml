@@ -9,6 +9,7 @@ services:
     volumes:
       - /home/lbastien/data/wp_files:/var/www/html
       - /home/lbastien/data/ssl:/etc/ssl
+      - /home/lbastien/data/cv_files:/var/www/resume
     networks:
       - internal
     restart: always
@@ -56,11 +57,19 @@ services:
     build:
       context: ../srcs/services/redis
       dockerfile: Dockerfile
-    ports:
-      - "6379:6379"
     networks:
       - internal
     restart: always
+
+  adminer:
+    build:
+      context: ../srcs/services/adminer
+      dockerfile: Dockerfile
+    networks:
+      - internal
+    restart: always
+    depends_on:
+      - mariadb
 
 networks:
   internal:
