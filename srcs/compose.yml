@@ -41,9 +41,13 @@ services:
     restart: always
 
   ftp:
+    env_file: ".env"
     build:
       context: ../srcs/services/ftp
       dockerfile: Dockerfile
+      args:
+        FTP_USER: ${FTP_USER}
+        FTP_PASS: ${FTP_PASS}
     ports:
       - "21:21"
       - "30000-30009:30000-30009"
@@ -70,6 +74,14 @@ services:
     restart: always
     depends_on:
       - mariadb
+
+  mailhog:
+    build:
+      context: ../srcs/services/mailhog
+      dockerfile: Dockerfile
+    networks:
+      - internal
+    restart: always
 
 networks:
   internal:

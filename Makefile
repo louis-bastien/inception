@@ -1,6 +1,8 @@
 #SETTINGS
 
+export COMPOSE_PROJECT_NAME=
 COMPOSE_FILE = srcs/compose.yml
+
 
 all: build up
 
