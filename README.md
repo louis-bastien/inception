@@ -17,9 +17,7 @@ Inception is a project developed as part of the 42 curriculum to design a secure
   - **MailHog** for local SMTP testing
 - Configured **SSL**, **Docker networks**, and **persistent volumes**
 - Designed to simulate a modular production setup
-
----
-
+  
 ## 🛠 Tech Stack
 
 **Services & Tools**
