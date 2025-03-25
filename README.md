@@ -1,7 +1,7 @@
 # Inception 🧱  
 **Multi-Service Web Infrastructure with Docker Compose**
 
-Inception is a project developed as part of the 42 curriculum to design a secure, production-like environment using Docker containers. It deploys a complete web hosting stack using containerized services, with isolated networks and persistent volumes.
+Inception is a project developed as part of the 42 curriculum to design a secure, production-like environment using Docker containers. It deploys a complete web hosting stack using containerized services, with isolated networks and persistent volumes. The goal was to design an infrastructure that reflects good DevOps practices, such as modular services, proper isolation, and minimal manual configuration.
 
 ### ✨ Key Features
 
@@ -41,14 +41,6 @@ Inception is a project developed as part of the 42 curriculum to design a secure
 - Container networking  
 - Volume persistence  
 - Reverse proxy with SSL (self-signed certificates)
-
----
-
-## 🚧 Project Context
-
-This project was completed as part of the **Inception module** at 42 School. It focuses on container orchestration, service isolation, and basic production-like architecture — entirely within a virtualized environment.
-
-The goal was to design an infrastructure that reflects good DevOps practices, such as modular services, proper isolation, and minimal manual configuration.
 
 ---
 
