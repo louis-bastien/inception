@@ -40,8 +40,6 @@ Inception is a project developed as part of the 42 curriculum to design a secure
 - Volume persistence  
 - Reverse proxy with SSL (self-signed certificates)
 
----
-
 ## 📬 Contact
 
 Built and maintained by [@lulubas](https://github.com/lulubas)
